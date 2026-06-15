@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel PlayFit</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
+</head>
+<body class="admin-view">
+    <h3>CONTROLE DE TRANSMISSÃO</h3>
+    
+    <div class="card">
+        <p>Status: <span id="status" style="color: red;">Desconectado</span></p>
+        <p style="font-size: 12px;">Conecte ao ID da Live para sincronizar.</p>
+    </div>
+
+    <div class="card">
+        <h4>Rei da Quadra</h4>
+        <input type="text" id="king-name" oninput="state.king.name = this.value; pushUpdate()" style="width: 100%; height: 40px;">
+        <div style="display:flex; justify-content: space-around; margin-top: 10px;">
+            <button onclick="changeScore('king', -1)">-1</button>
+            <button onclick="changeScore('king', 1)">+1</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <h4>Cronômetro</h4>
+        <button onclick="timerAction('start')">Iniciar</button>
+        <button onclick="timerAction('pause')">Pausar</button>
+    </div>
+
+    <div id="ranking-controls"></div>
+
+    <script src="script.js"></script>
+    <script>
+        // No controle, você deve passar o ID do overlay na URL: 
+        // controle.html?room=ID_DA_LIVE
+        initControl();
+        
+        function renderControlRanking() {
+            document.getElementById('status').innerText = (connection && connection.open) ? "Conectado" : "Conectando...";
+            // ... resto da lógica de renderização de inputs ...
+        }
+    </script>
+</body>
+</html>
