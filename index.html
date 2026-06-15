@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>KOTC Overlay</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- PeerJS para conexão sem backend -->
+    <script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
+</head>
+<body>
+    <div id="overlay-container">
+        <!-- Barra Superior (Logo e Cronômetro) -->
+        <div class="top-bar">
+            <div class="logo-pf">PLAYFIT</div>
+            <div id="display-timer" class="timer">15:00</div>
+            <div id="display-event" class="event">KING OF THE COURT</div>
+        </div>
+
+        <!-- Ranking Lateral Direito -->
+        <div class="leaderboard-side" id="display-ranking"></div>
+
+        <!-- Placar do Rei (Inferior) -->
+        <div class="king-score-fixed">
+            <div class="king-label">KING OF THE COURT</div>
+            <div class="king-info">
+                <span id="display-king-name">DUPLA A</span>
+                <span id="display-king-score" class="score">0</span>
+            </div>
+        </div>
+
+        <div class="sponsor-tag" id="display-sponsor">PLAYFIT</div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>initOverlay();</script>
+</body>
+</html>
